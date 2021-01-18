@@ -1,0 +1,5 @@
+err_check.py:    sql = "select channel, monitor_err_info, update_time from post_process_day_job where recheck_status = 2 and %s" % " and ".join([channel_sql, date_start_sql, date_end_sql])
+new_produce.py:        db.query("update post_process_day_job set status = -10 where channel = '%s' and `day` = '%s'" % (channel, day))
+new_produce.py:    sql = "select idx, channel, `day`, recheck_status, monitor_err_info, update_time from post_process_day_job where status != -10 and %s" % " and ".join([where_channel, where_day])
+new_produce.py:    res = db.query( "select  1 from post_process_day_job   where channel =  '%s' and recheck_status = 1 and day  = '%s'" %( channel_id , day  ) )
+try.py:    sql = "select idx, channel, `day`, recheck_status, local_more_count, dmp_more_count, update_time from post_process_day_job where status in (3, 4, 5) %s" % where_day
